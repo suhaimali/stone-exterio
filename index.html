@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Stone Exterio provides premium natural stone solutions for cladding, paving, and landscaping globally.">
+  <title>STONE EXTERIO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/3x0r8y6g0Z7z3xK7h6z9zL0Z7Z8z3z9zK7h6z9zL0Z7Z8z3z9z==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="IMAGES/logo.png" alt="Stone Exterio Logo">
+  <link rel="manifest" href="/manifest.json">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #f9fafb; color: #333; line-height: 1.6; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 15px; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; color: #111; font-weight: 700; }
+    h2 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 20px; color: #00b894; text-align: center; }
+    p { color: #555; margin-bottom: 10px; font-size: clamp(0.95rem, 2.5vw, 1.1rem); }
+
+    /* Top Bar */
+    .top-bar {
+      background: #1f2937;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+    }
+    .top-bar .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+    .top-bar .social-icons a {
+      color: #d1d5db;
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .top-bar .social-icons a:hover {
+      color: #00b894;
+      transform: scale(1.2);
+    }
+
+    /* Enhanced Navbar */
+    header {
+      background: #fff;
+      padding: 15px 0;
+      position: sticky;
+      /* Stick the header below the top-bar initially */
+      /* We'll adjust the 'top' value with JS if needed, but sticky behavior is complex with two sticky elements */
+      top: 44px; /* Adjust based on actual top-bar height */
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+       top: 44px; /* Keep it below top-bar even when scrolled */
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: #00b894;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+      color: #008a70;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+       margin-bottom: 0; /* Reset margin for ul */
+    }
+    nav ul li a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00b894;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+    nav ul li a:hover::after, nav ul li a.active::after {
+      width: 50%;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      background: #00b894;
+      color: #fff;
+    }
+    .navbar-toggler {
+      display: none;
+      font-size: clamp(1.4rem, 3vw, 1.6rem);
+      background: none;
+      border: none;
+      color: #00b894;
+      cursor: pointer;
+    }
+    .nav-menu {
+      display: flex;
+    }
+
+    /* Welcome Section with Enhanced Slider */
+    #welcome {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f9fafb;
+      padding: 0;
+       margin-top: -44px; /* Offset the height of the sticky top-bar */
+    }
+    .carousel {
+      width: 100%;
+      height: 100vh;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: hidden;
+      touch-action: pan-y;
+      position: relative;
+      background: #111;
+    }
+    .carousel-inner {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+    }
+    .carousel-item {
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+      transform: scale(0.95);
+      opacity: 0.7;
+    }
+    .carousel-item.active {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .carousel-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+      z-index: 1;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9);
+      transition: filter 0.5s ease, transform 1.2s ease;
+    }
+    .carousel-item.active img {
+      filter: brightness(1);
+      transform: scale(1.05);
+    }
+    .carousel-item:hover img {
+      transform: scale(1.08);
+    }
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      padding: clamp(10px, 2.5vw, 15px) clamp(12px, 3vw, 20px);
+      max-width: clamp(80%, 90vw, 90%);
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-caption:hover {
+      transform: translate(-50%, -50%) scale(1.03);
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    .carousel-caption h1 {
+      font-size: clamp(1.2rem, 4vw, 2.5rem);
+      color: #fff;
+      margin-bottom: clamp(8px, 1.5vw, 12px);
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      line-height: 1.2;
+      animation: slideInLeft 0.8s ease-out;
+      text-align: center;
+    }
+    .carousel-caption p {
+      font-size: clamp(0.7rem, 2vw, 1rem);
+      color: #e0f7f5;
+      margin-bottom: clamp(10px, 1.5vw, 15px);
+      line-height: 1.4;
+      animation: slideInUp 1s ease-out 0.2s;
+      animation-fill-mode: backwards;
+      text-align: center;
+    }
+    .carousel-caption .cta-button {
+      padding: clamp(8px, 1.5vw, 12px) clamp(15px, 3vw, 25px);
+      background: #00b894;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 30px;
+      font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+      transition: all 0.3s ease;
+      display: inline-block;
+      animation: bounceIn 1.2s ease-out 0.4s;
+      animation-fill-mode: backwards;
+      text-align: center;
+    }
+    .carousel-caption .cta-button:hover {
+      background: #008a70;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+    }
+    .carousel-control-prev, .carousel-control-next {
+      width: clamp(35px, 6vw, 45px);
+      height: clamp(35px, 6vw, 45px);
+      background: rgba(0, 184, 148, 0.8);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      opacity: 0.7;
+    }
+    .carousel-control-prev:hover, .carousel-control-next:hover {
+      background: #008a70;
+      opacity: 1;
+      transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+       width: clamp(1rem, 2vw, 1.2rem); /* Adjust icon size */
+       height: clamp(1rem, 2vw, 1.2rem);
+       background-size: 100%, 100%;
+    }
+    .carousel-indicators {
+      bottom: clamp(10px, 2vw, 15px);
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+    }
+    .carousel-indicators button {
+      width: clamp(10px, 2vw, 12px);
+      height: clamp(10px, 2vw, 12px);
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+      margin: 0 5px;
+      border: none; /* Remove default border */
+    }
+    .carousel-indicators .active {
+      background-color: #00b894;
+      transform: scale(1.2);
+    }
+
+    /* About Section */
+    #about {
+      background: #fff;
+      padding: clamp(40px, 6vw, 60px) 15px; /* Increased padding */
+    }
+    #about .container {
+      max-width: 1000px;
+      text-align: center;
+    }
+    #about p.about-description {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 30px; /* Increased margin */
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px; /* Increased gap */
+      margin-top: 30px; /* Increased margin */
+    }
+    .feature-box {
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 25px 15px; /* Increased padding */
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    .feature-box.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 184, 148, 0.15); /* Enhanced hover shadow */
+    }
+    .feature-box i {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      color: #00b894;
+      margin-bottom: 15px; /* Increased margin */
+    }
+    .feature-box h3 {
+      font-size: clamp(1.2rem, 3vw, 1.4rem);
+      margin-bottom: 8px; /* Increased margin */
+      color: #1f2937; /* Darker heading color */
+    }
+    .feature-box p {
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
+      color: #6b7280;
+      line-height: 1.5; /* Adjusted line-height */
+    }
+
+    /* Our Work Section */
+    #our-work {
+      padding: clamp(40px, 6vw, 60px) 15px; /* Increased padding */
+      background: #f9fafb;
+    }
+    .work-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; /* Increased gap */
+      margin-top: 30px; /* Increased margin */
+    }
+    .work-item {
+      position: relative;
+      overflow: hidden; /* Ensure overlay stays within bounds */
+      border-radius: 8px; /* Match image radius */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease; /* Added box-shadow transition */
+      transform: scale(0.98);
+      opacity: 0;
+    }
+    .work-item.visible {
+       transform: scale(1);
+       opacity: 1;
+    }
+    .work-item:hover {
+       transform: scale(1.03); /* Slightly larger scale on hover */
+       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    }
+    .work-item img {
+      display: block; /* Remove extra space below image */
+      width: 100%;
+      height: clamp(200px, 25vw, 250px); /* Increased height */
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.4s ease; /* Only transform the image */
+    }
+    .work-item:hover img {
+      transform: scale(1.05); /* Scale image within the item on hover */
+    }
+    .work-video-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: clamp(200px, 25vw, 250px); /* Match image height */
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transform: scale(0.98);
+      opacity: 0;
+    }
+    .work-video-container.visible {
+       transform: scale(1);
+       opacity: 1;
+    }
+     .work-video-container:hover {
+       transform: scale(1.03);
+       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    .work-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block; /* Remove extra space */
+    }
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      border-radius: 8px; /* Match container radius */
+    }
+    .work-video-container:hover .video-overlay {
+      opacity: 0.7; /* Slightly more transparent on hover */
+    }
+    .play-button {
+      background: #00b894;
+      border: none;
+      width: clamp(50px, 8vw, 60px);
+      height: clamp(50px, 8vw, 60px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow to button */
+    }
+    .play-button:hover {
+      background: #008a70;
+      transform: scale(1.1);
+    }
+    .play-button i {
+      color: #fff;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      margin-left: 4px; /* Adjust icon position */
+    }
+    .work-video.playing + .video-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .work-item p { /* Style for image captions */
+      position: absolute;
+      bottom: 0; /* Position at the bottom */
+      left: 0;
+      width: 100%; /* Full width */
+      color: #fff;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradient background */
+      padding: 20px 10px 10px 10px; /* Adjust padding */
+      border-bottom-left-radius: 8px; /* Match image radius */
+      border-bottom-right-radius: 8px;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      margin: 0;
+      text-align: center; /* Center text */
+      opacity: 0; /* Hidden by default */
+      transition: opacity 0.3s ease;
+    }
+    .work-item:hover p {
+        opacity: 1; /* Show caption on hover */
+    }
+
+
+    /* Footer */
+    footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: clamp(40px, 6vw, 60px) 15px clamp(20px, 4vw, 30px) 15px; /* Increased top/bottom padding */
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
+      border-top: 5px solid #00b894; /* Thicker border */
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly larger min width */
+      gap: 30px; /* Increased gap */
+      padding: 0 15px;
+    }
+    .footer-section {
+      padding: 0; /* Remove padding here, add spacing below */
+      transition: transform 0.4s ease, opacity 0.4s ease; /* Smoother transition */
+      transform: translateY(15px); /* Slightly more initial offset */
+      opacity: 0;
+    }
+    .footer-section.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .footer-logo {
+        margin-bottom: 15px; /* Space below logo */
+    }
+    .footer-logo a {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2rem); /* Slightly larger logo */
+      font-weight: 700;
+      color: #00b894;
+      text-decoration: none;
+      transition: color 0.3s ease; /* Changed transition target */
+    }
+    .footer-logo a:hover {
+      color: #00e0b5; /* Lighter green on hover */
+    }
+    .footer-section h3 {
+      font-size: clamp(1.3rem, 3.5vw, 1.5rem); /* Larger heading */
+      color: #fff;
+      margin-bottom: 18px; /* Increased margin */
+      position: relative;
+      padding-bottom: 8px; /* Space for underline */
+    }
+    .footer-section h3::after {
+      content: '';
+      width: 40px; /* Longer underline */
+      height: 3px; /* Thicker underline */
+      background: #00b894;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .footer-section p {
+        font-size: clamp(0.85rem, 2vw, 0.9rem);
+        color: #a0aec0; /* Lighter text color */
+        line-height: 1.7; /* Improved line spacing */
+        margin-bottom: 15px;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding-left: 0; /* Remove default padding */
+      margin-bottom: 15px; /* Space below list */
+    }
+    .footer-section ul li {
+        margin-bottom: 8px; /* Space between list items */
+    }
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #d1d5db; /* Standard link color */
+      font-size: clamp(0.9rem, 2.2vw, 0.95rem); /* Slightly larger links */
+      transition: color 0.3s ease, padding-left 0.3s ease; /* Added padding transition */
+      position: relative;
+      padding-left: 0;
+    }
+     .footer-section ul li a:hover {
+      color: #00b894;
+      padding-left: 5px; /* Indent on hover */
+    }
+     .footer-section ul li a::before { /* Optional: add a small icon/bullet */
+        content: '\f105'; /* FontAwesome right arrow */
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-right: 8px;
+        color: #00b894;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+     }
+     .footer-section ul li a:hover::before {
+         opacity: 1;
+     }
+    .footer-section .contact-info p {
+        display: flex;
+        align-items: flex-start; /* Align items top */
+        margin-bottom: 12px;
+        color: #d1d5db;
+    }
+    .footer-section .contact-info i {
+      margin-right: 10px; /* Increased space */
+      color: #00b894;
+      font-size: clamp(0.95rem, 2.1vw, 1.05rem); /* Slightly larger icon */
+      width: 20px; /* Fixed width for alignment */
+      text-align: center;
+      margin-top: 3px; /* Align icon better */
+    }
+    .footer-section .contact-info a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-section .contact-info a:hover {
+      color: #00b894;
+    }
+    .footer-section .social-icons {
+      display: flex;
+      gap: 15px; /* Increased gap */
+      margin-top: 20px; /* Increased margin */
+    }
+    .footer-section .social-icons a {
+      color: #d1d5db;
+      font-size: clamp(1.5rem, 3.2vw, 1.7rem); /* Larger icons */
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .footer-section .social-icons a:hover {
+      color: #00b894;
+      transform: translateY(-3px); /* Lift icon on hover */
+    }
+    .footer-section .search-bar {
+      display: flex;
+      align-items: center;
+      margin-top: 20px; /* Increased margin */
+      position: relative;
+      max-width: 250px; /* Limit search bar width */
+    }
+    .footer-section .search-bar input {
+      padding: 10px 40px 10px 15px; /* Adjusted padding */
+      border: 1px solid #4a5568; /* Added border */
+      border-radius: 25px;
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
+      width: 100%;
+      background: #2d3748;
+      color: #fff;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .footer-section .search-bar input::placeholder {
+        color: #a0aec0; /* Lighter placeholder */
+    }
+    .footer-section .search-bar input:focus {
+      box-shadow: 0 0 8px rgba(0, 184, 148, 0.5); /* Enhanced focus shadow */
+      outline: none;
+      border-color: #00b894;
+    }
+    .footer-section .search-bar button {
+      background: #00b894;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px; /* Larger button */
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%); /* Center button vertically */
+      transition: background 0.3s ease;
+    }
+    .footer-section .search-bar button:hover {
+      background: #008a70;
+    }
+    .footer-section .search-bar button i {
+        font-size: 0.9rem; /* Adjust icon size */
+    }
+    .footer-map {
+      margin-top: 15px; /* Increased margin */
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      height: clamp(160px, 25vw, 220px); /* Increased map height */
+      overflow: hidden;
+      border: 1px solid #4a5568; /* Add subtle border */
+    }
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .working-hours {
+      margin-top: 15px; /* Increased margin */
+    }
+    .working-hours p {
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
+      color: #d1d5db;
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Increased gap */
+      margin-bottom: 8px; /* Space between lines */
+    }
+    .working-hours i {
+      color: #00b894;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+       width: 18px; /* Align icons */
+       text-align: center;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px; /* Increased margin */
+      padding-top: 15px; /* Increased padding */
+      border-top: 1px solid #4a5568;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      color: #a0aec0;
+    }
+    .footer-bottom a {
+      color: #00b894;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-bottom a:hover {
+      color: #fff;
+    }
+
+    /* WhatsApp Chat Widget */
+    .wati-chat-widget {
+      position: fixed;
+      bottom: 25px; /* Adjusted position */
+      right: 25px;
+      z-index: 1200;
+    }
+    .wati-chat-button {
+      background: #25D366; /* Official WhatsApp Green */
+      color: #fff;
+      padding: clamp(12px, 2.5vw, 15px); /* Slightly larger padding */
+      border-radius: 50%;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35); /* Enhanced shadow */
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+      display: flex; /* Center icon */
+      align-items: center;
+      justify-content: center;
+    }
+    .wati-chat-button:hover {
+      transform: scale(1.1);
+      background: #128C7E; /* Darker WhatsApp Green */
+    }
+    .wati-chat-button i {
+      font-size: clamp(1.8rem, 4vw, 2rem); /* Larger icon */
+    }
+
+    /* WhatsApp Modal */
+    .whatsapp-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65); /* Darker overlay */
+      z-index: 1300;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out; /* Adjusted timing */
+    }
+    .whatsapp-modal.show {
+      display: flex;
+      opacity: 1;
+    }
+    .whatsapp-modal .modal-content {
+      background: #fff;
+      border-radius: 12px; /* Slightly less rounded */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Softer shadow */
+      width: clamp(300px, 90vw, 420px); /* Adjusted width */
+      max-height: 90vh; /* Increased max height */
+      overflow: hidden; /* Hide overflow, body handles scroll */
+      transform: scale(0.9) translateY(20px); /* Initial animation state */
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease-in-out; /* Spring-like effect */
+      position: relative;
+      display: flex;
+      flex-direction: column; /* Ensure vertical layout */
+    }
+    .whatsapp-modal.show .modal-content {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+    .whatsapp-modal .modal-header {
+      background: #00b894;
+      color: #fff;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      padding: clamp(14px, 2.2vw, 18px); /* Increased padding */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: none; /* Remove default border */
+    }
+    .whatsapp-modal .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem); /* Adjusted size */
+      font-weight: 600; /* Slightly bolder */
+    }
+    .whatsapp-modal .btn-close {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      cursor: pointer;
+      opacity: 0.8;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      padding: 5px; /* Easier to click */
+    }
+    .whatsapp-modal .btn-close:hover {
+      transform: rotate(90deg) scale(1.1); /* Rotate and scale */
+      opacity: 1;
+    }
+     .whatsapp-modal .btn-close i {
+         display: block; /* Fix potential layout issues */
+     }
+    .whatsapp-modal .modal-body {
+      padding: clamp(15px, 3vw, 25px); /* Increased padding */
+      overflow-y: auto; /* Allow scrolling only for body */
+      flex-grow: 1; /* Allow body to take available space */
+    }
+     /* Style for the name input field */
+     .whatsapp-modal .modal-body .form-label {
+         font-weight: 600;
+         margin-bottom: 5px;
+         font-size: clamp(0.85rem, 2vw, 0.9rem);
+         color: #333;
+     }
+     .whatsapp-modal .modal-body .form-control { /* General style for inputs/textarea */
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d1d5db; /* Softer border */
+        border-radius: 8px;
+        font-size: clamp(0.9rem, 2vw, 0.95rem);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        line-height: 1.5;
+     }
+     .whatsapp-modal .modal-body .form-control:focus {
+      border-color: #00b894;
+      box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.2); /* More prominent focus */
+      outline: none;
+    }
+    .whatsapp-modal .modal-body textarea.form-control { /* Specific style for textarea */
+      min-height: 100px; /* Adjusted height */
+      resize: vertical;
+      margin-top: 15px; /* Space between name and message */
+    }
+    .whatsapp-modal .modal-footer {
+      padding: clamp(12px, 2.5vw, 15px) clamp(15px, 3vw, 25px); /* Adjusted padding */
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px; /* Increased gap */
+      border-top: 1px solid #e5e7eb; /* Add separator line */
+      background-color: #f9fafb; /* Slightly different background */
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    .whatsapp-modal .modal-footer .btn { /* General button styles */
+        padding: clamp(9px, 1.8vw, 11px) clamp(18px, 3.5vw, 22px); /* Adjusted padding */
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: clamp(0.9rem, 2vw, 0.95rem);
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+    }
+     .whatsapp-modal .modal-footer .btn:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+     }
+    .whatsapp-modal .modal-footer .btn-primary {
+      background: #00b894;
+      color: #fff;
+    }
+    .whatsapp-modal .modal-footer .btn-primary:hover {
+      background: #008a70;
+    }
+    .whatsapp-modal .modal-footer .btn-secondary {
+      background: #6c757d; /* Standard Bootstrap secondary */
+      color: #fff;
+    }
+    .whatsapp-modal .modal-footer .btn-secondary:hover {
+      background: #5a6268;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 25px; /* Match WhatsApp button */
+      left: 25px;
+      background: #00b894;
+      color: #fff;
+      width: 48px; /* Slightly smaller */
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px; /* Adjusted icon size */
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out; /* Adjusted timing */
+      z-index: 1200;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Add shadow */
+    }
+    .scroll-to-top.visible {
+      opacity: 0.8; /* Slightly transparent */
+      visibility: visible;
+    }
+    .scroll-to-top:hover {
+      background: #008a70;
+      opacity: 1; /* Fully opaque on hover */
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design Adjustments */
+    @media (max-width: 991px) { /* Target tablets and below */
+        header {
+            top: 44px; /* Ensure it stays below top-bar */
+        }
+         .work-gallery {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjust min-width */
+        }
+         .footer-container {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjust min-width */
+            gap: 25px;
+        }
+    }
+
+    @media (max-width: 850px) {
+      header {
+          padding: 12px 0; /* Slightly reduce padding */
+          top: 44px; /* Ensure it stays below top-bar */
+          position: sticky; /* Keep it sticky */
+      }
+       .header-container {
+          padding: 0 12px; /* Reduce padding */
+       }
+      .navbar-toggler {
+        display: block;
+        order: 1; /* Ensure toggler is on the right */
+      }
+       .logo {
+            order: 0; /* Keep logo on the left */
+            font-size: clamp(1.6rem, 4vw, 2rem); /* Adjust size */
+       }
+      .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: calc(100% + 1px); /* Position below header */
+        left: 0;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid #eee; /* Add separator */
+         order: 2; /* Ensure menu appears below logo/toggler */
+         max-height: calc(100vh - 120px); /* Limit height */
+         overflow-y: auto; /* Allow scroll if needed */
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: stretch; /* Full width items */
+      }
+      nav ul li a {
+        display: block;
+        text-align: center;
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+        padding: 12px 15px; /* Adjust padding */
+        border-radius: 8px; /* Less rounded for block links */
+      }
+      nav ul li a::after {
+          display: none; /* Hide underline effect on mobile */
+      }
+       nav ul li a:hover, nav ul li a.active {
+           background: #e0f7f5; /* Lighter background on mobile */
+           color: #008a70; /* Darker text */
+       }
+
+      .carousel-caption {
+        max-width: 90%; /* Adjust max width */
+        padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 15px); /* Adjust padding */
+      }
+      .carousel-caption h1 {
+        font-size: clamp(1.1rem, 3.8vw, 1.8rem); /* Adjust size */
+      }
+      .carousel-caption p {
+        font-size: clamp(0.7rem, 2vw, 0.9rem); /* Adjust size */
+      }
+      .carousel-caption .cta-button {
+        padding: clamp(7px, 1.4vw, 10px) clamp(14px, 2.8vw, 20px); /* Adjust padding */
+        font-size: clamp(0.7rem, 1.7vw, 0.9rem); /* Adjust size */
+      }
+      .carousel-control-prev, .carousel-control-next {
+        width: clamp(32px, 5.5vw, 40px); /* Adjust size */
+        height: clamp(32px, 5.5vw, 40px);
+      }
+       .carousel-control-prev-icon, .carousel-control-next-icon {
+         width: clamp(0.9rem, 1.8vw, 1.1rem);
+         height: clamp(0.9rem, 1.8vw, 1.1rem);
+       }
+       .carousel-indicators button {
+         width: clamp(9px, 1.8vw, 11px);
+         height: clamp(9px, 1.8vw, 11px);
+       }
+       .features { gap: 15px; }
+       .work-gallery { gap: 15px; }
+       .footer-container {
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust min-width */
+          gap: 20px;
+       }
+       .footer-map { height: clamp(140px, 38vw, 180px); }
+       .whatsapp-modal .modal-content {
+         width: clamp(280px, 90vw, 380px); /* Adjust width */
+       }
+    }
+
+    @media (max-width: 480px) {
+        header {
+            padding: 10px 0;
+            top: 44px; /* Keep below top-bar */
+        }
+       .header-container {
+          padding: 0 10px;
+       }
+       .logo { font-size: clamp(1.5rem, 4vw, 1.8rem); }
+       nav ul li a {
+         font-size: clamp(0.95rem, 2.8vw, 1rem);
+         padding: 10px 12px;
+       }
+       #welcome {
+           /* Ensure welcome section doesn't get cut off by header */
+           padding-top: 60px; /* Adjust if header height changes */
+           margin-top: -104px; /* top-bar (44) + header (approx 60) */
+       }
+       .carousel-caption {
+         max-width: 92%;
+         padding: clamp(6px, 2.5vw, 10px) clamp(8px, 3vw, 12px);
+       }
+       .carousel-caption h1 {
+         font-size: clamp(1rem, 4vw, 1.4rem);
+       }
+       .carousel-caption p {
+         font-size: clamp(0.65rem, 2vw, 0.85rem);
+         margin-bottom: clamp(8px, 1.5vw, 12px);
+       }
+       .carousel-caption .cta-button {
+         padding: clamp(6px, 1.2vw, 9px) clamp(12px, 2.5vw, 18px);
+         font-size: clamp(0.65rem, 1.6vw, 0.85rem);
+       }
+       .carousel-control-prev, .carousel-control-next {
+         width: clamp(30px, 6vw, 36px);
+         height: clamp(30px, 6vw, 36px);
+       }
+        .carousel-indicators {
+            bottom: 8px; /* Closer to bottom */
+        }
+       .carousel-indicators button {
+         width: clamp(8px, 2vw, 10px);
+         height: clamp(8px, 2vw, 10px);
+       }
+       h2 { font-size: clamp(1.8rem, 6vw, 2.2rem); } /* Adjust heading size */
+       #about, #our-work, footer { padding-top: clamp(30px, 5vw, 40px); padding-bottom: clamp(30px, 5vw, 40px); }
+       .features { grid-template-columns: 1fr; gap: 12px; }
+       .work-gallery { grid-template-columns: 1fr; gap: 12px; }
+       .work-item img, .work-video-container { height: clamp(180px, 40vw, 220px); } /* Adjust height */
+       .footer-container {
+           grid-template-columns: 1fr;
+           text-align: center;
+           gap: 25px; /* Increased gap for single column */
+        }
+       .footer-section h3::after { left: 50%; transform: translateX(-50%); }
+       .footer-section .social-icons, .footer-section .search-bar { justify-content: center; }
+       .footer-section .search-bar { max-width: none; } /* Allow full width */
+       .footer-section .search-bar input { max-width: 80%; margin: 0 auto; } /* Center input */
+       .footer-section .search-bar button { right: 10%; } /* Adjust button position */
+        .footer-section .contact-info p { justify-content: center; text-align: left; max-width: 300px; margin-left:auto; margin-right: auto;}
+        .footer-section .contact-info i { width: auto; margin-top: 1px;} /* Let icon width be auto */
+        .footer-map { height: clamp(150px, 40vw, 180px); }
+        .play-button { width: clamp(45px, 10vw, 55px); height: clamp(45px, 10vw, 55px); }
+        .wati-chat-widget, .scroll-to-top { bottom: 15px; }
+        .wati-chat-widget { right: 15px; }
+        .scroll-to-top { left: 15px; width: 44px; height: 44px; font-size: 18px;}
+        .wati-chat-button { padding: clamp(10px, 2.2vw, 13px); }
+        .wati-chat-button i { font-size: clamp(1.6rem, 3.5vw, 1.8rem); }
+        .whatsapp-modal .modal-content {
+            width: clamp(270px, 92vw, 340px); /* Adjust width */
+        }
+        .whatsapp-modal .modal-title {
+            font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+        }
+        .whatsapp-modal .modal-body textarea {
+            min-height: 90px;
+            font-size: clamp(0.85rem, 2.2vw, 0.9rem);
+        }
+        .whatsapp-modal .modal-footer { flex-direction: column; align-items: stretch; gap: 8px; } /* Stack buttons */
+        .whatsapp-modal .modal-footer .btn { width: 100%; } /* Full width buttons */
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/164vzCXVV1/" target="_blank" aria-label="Facebook" class="animate__animated animate__fadeIn" style="animation-delay: 0.4s;"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/stone_exterio/" target="_blank" aria-label="Instagram" class="animate__animated animate__fadeIn" style="animation-delay: 0.5s;"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="wati-chat-trigger" aria-label="WhatsApp" class="animate__animated animate__fadeIn" style="animation-delay: 0.6s;"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <div class="header-container">
+      <a href="#welcome" class="logo animate__animated animate__pulse animate__infinite animate__slow">Stone Exterio</a>
+      <button class="navbar-toggler" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="navbar" class="nav-menu">
+        <ul>
+          <li><a href="#welcome" class="active animate__animated animate__fadeIn">Home</a></li>
+          <li><a href="#about" class="animate__animated animate__fadeIn" style="animation-delay: 0.1s;">About</a></li>
+          <li><a href="#contact" class="animate__animated animate__fadeIn" style="animation-delay: 0.2s;">Contact</a></li>
+          <li><a href="#our-work" class="animate__animated animate__fadeIn" style="animation-delay: 0.3s;">Our Work</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Welcome Section with Enhanced Slider -->
+  <section id="welcome">
+    <div id="welcomeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#welcomeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#welcomeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#welcomeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="IMAGES/8.jpg" alt="Stone Exterior 1" loading="lazy">
+          <div class="carousel-caption animate__animated animate__fadeInUp">
+            <h1 class="animate__animated animate__slideInLeft">Welcome to Stone Exterio</h1>
+            <p class="animate__animated animate__slideInUp animate__delay-1s">Timeless stone solutions for elegant and durable exteriors.</p>
+            <a href="#contact" class="cta-button animate__animated animate__bounceIn animate__delay-2s">Get a Quote</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="IMAGES/1.jpg" alt="Stone Exterior 2" loading="lazy">
+          <div class="carousel-caption animate__animated animate__fadeInUp">
+            <h1 class="animate__animated animate__slideInLeft">Exquisite Stone Designs</h1>
+            <p class="animate__animated animate__slideInUp animate__delay-1s">Crafting stunning exteriors with premium natural stones.</p>
+            <a href="#our-work" class="cta-button animate__animated animate__bounceIn animate__delay-2s">View Projects</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="IMAGES/3.jpg" alt="Stone Exterior 3" loading="lazy">
+          <div class="carousel-caption animate__animated animate__fadeInUp">
+            <h1 class="animate__animated animate__slideInLeft">Transform Your Outdoors</h1>
+            <p class="animate__animated animate__slideInUp animate__delay-1s">Stunning landscapes with durable stone designs.</p>
+            <a href="#about" class="cta-button animate__animated animate__bounceIn animate__delay-2s">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p class="about-description">Stone Exterio is a leading supplier of natural stone cladding, flooring, and paving, delivering excellence to global clients in modern architecture.</p>
+      <div class="features">
+        <div class="feature-box animate__animated animate__fadeInUp">
+          <i class="fas fa-layer-group"></i>
+          <h3>Natural Materials</h3>
+          <p>Finest natural stones for authentic beauty and durability.</p>
+        </div>
+        <div class="feature-box animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+          <i class="fas fa-globe-americas"></i>
+          <h3>Global Reach</h3>
+          <p>Trusted worldwide with reliable international shipping.</p>
+        </div>
+        <div class="feature-box animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+          <i class="fas fa-award"></i>
+          <h3>Premium Quality</h3>
+          <p>Products meet stringent global quality standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Work Section -->
+  <section id="our-work">
+    <div class="container">
+      <h2>Our Work</h2>
+      <div class="work-gallery">
+        <div class="work-video-container animate__animated animate__fadeInUp">
+          <video class="work-video" poster="IMAGES/video_poster.jpg" loop muted controls> <!-- Optional: Add a poster image -->
+            <source src="IMAGES/Video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-overlay">
+            <button class="play-button" aria-label="Play video">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+          <img src="IMAGES/1.jpg" alt="Commercial Exterior 1" loading="lazy"/>
+          <p>Modern Facade Cladding</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+          <img src="IMAGES/2.jpg" alt="Commercial Exterior 2" loading="lazy"/>
+          <p>Elegant Stone Paving</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+          <img src="IMAGES/3.jpg" alt="Commercial Exterior 3" loading="lazy"/>
+          <p>Landscaping Feature Wall</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+          <img src="IMAGES/4.jpg" alt="Commercial Exterior 4" loading="lazy"/>
+          <p>Residential Stone Exterior</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 1.0s;">
+          <img src="IMAGES/5.jpg" alt="Commercial Exterior 5" loading="lazy"/>
+          <p>Natural Stone Steps</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 1.2s;">
+          <img src="IMAGES/6.jpg" alt="Commercial Exterior 6" loading="lazy"/>
+          <p>Poolside Stone Coping</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 1.4s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/8.jpg" alt="Commercial Exterior 8" loading="lazy"/>
+          <p>Architectural Stone Detail</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 1.6s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/9.jpg" alt="Commercial Exterior 9" loading="lazy"/>
+          <p>Stone Veneer Application</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 1.8s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/4444.jpg" alt="Commercial Exterior 10" loading="lazy"/>
+          <p>Outdoor Kitchen Cladding</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 2.0s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/11111.jpg" alt="Commercial Exterior 11" loading="lazy"/>
+          <p>Stacked Stone Fireplace</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 2.2s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/eeee.jpg" alt="Commercial Exterior 12" loading="lazy"/>
+          <p>Garden Pathway Stones</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 2.4s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/land.jpg" alt="Commercial Exterior 13" loading="lazy"/>
+          <p>Retaining Wall Design</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 2.6s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/@cypress_interiors_kerala @shebi_koyissan @aniz_cypress @vengarakkaar.jpg" alt="Commercial Exterior 14" loading="lazy"/>
+          <p>Interior Feature Accent</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 2.8s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/WWWWWWW.jpg" alt="Commercial Exterior 15" loading="lazy"/>
+          <p>Commercial Building Entrance</p>
+        </div>
+        <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 3.0s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/uuuuuu.jpg" alt="Commercial Exterior 16" loading="lazy"/>
+          <p>Custom Stone Flooring</p>
+        </div>
+         <div class="work-item animate__animated animate__fadeInUp" style="animation-delay: 3.2s;"> <!-- Adjusted delay -->
+          <img src="IMAGES/ggggg.jpg" alt="Commercial Exterior 17" loading="lazy"/>
+          <p>Driveway Stone Pavers</p> <!-- Added missing P tag -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-section footer-about animate__animated animate__fadeInUp"> <!-- Added class -->
+        <div class="footer-logo">
+          <a href="#welcome">Stone Exterio</a>
+        </div>
+        <p>Premium natural stone solutions for cladding, paving, and landscaping globally. Elevate your spaces with timeless elegance and durability.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/share/164vzCXVV1/" target="_blank" aria-label="Facebook" class="animate__animated animate__fadeIn" style="animation-delay: 0.1s;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/stone_exterio/" target="_blank" aria-label="Instagram" class="animate__animated animate__fadeIn" style="animation-delay: 0.2s;"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="wati-chat-trigger" aria-label="WhatsApp" class="animate__animated animate__fadeIn" style="animation-delay: 0.3s;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." aria-label="Search">
+          <button type="button" aria-label="Submit search"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+      <div class="footer-section footer-links animate__animated animate__fadeInUp" style="animation-delay: 0.2s;"> <!-- Added class -->
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="#welcome">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+           <li><a href="#our-work">Our Work</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <!-- Add more links like FAQ, Blog, Gallery etc. if needed -->
+        </ul>
+      </div>
+      <div class="footer-section footer-contact animate__animated animate__fadeInUp" style="animation-delay: 0.4s;"> <!-- Added class -->
+        <h3>Contact Info</h3>
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Nilambur - Malappuram Rd, Cherani, Manjeri, Kerala 676122, India</p>
+          <p><i class="fas fa-phone-alt"></i> <a href="tel:+919633170754">+91 96331 70754</a></p>
+          <!-- Removed duplicate phone number -->
+          <p><i class="fas fa-envelope"></i> <a href="mailto:exteriostone@gmail.com">exteriostone@gmail.com</a></p>
+        </div>
+        <div class="working-hours">
+           <p style="font-weight: 600; color: #fff; margin-bottom: 5px;">Working Hours:</p> <!-- Added heading -->
+          <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 8:00 PM</p>
+          <p><i class="fas fa-times-circle"></i> Sunday: Closed</p> <!-- Changed icon -->
+        </div>
+      </div>
+      <div class="footer-section footer-location animate__animated animate__fadeInUp" style="animation-delay: 0.6s;"> <!-- Added class -->
+        <h3>Our Location</h3>
+        <div class="footer-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.660264754477!2d76.1162871!3d11.138660200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba637a6d8b272d5%3A0x4b7be502789a9ba5!2sStone%20Exterio%20Manjeri!5e0!3m2!1sen!2sus!4v1745419184909!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Stone Exterio Location Map"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> Stone Exterio. All rights reserved. Designed by <a href="tel:+918891479505" aria-label="Suhaim Soft">Suhaim Soft</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- WhatsApp Chat Widget -->
+  <div class="wati-chat-widget">
+    <div class="wati-chat-button" onclick="openWhatsAppModal()" aria-label="WhatsApp chat">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+  </div>
+
+  <!-- WhatsApp Modal -->
+  <div class="whatsapp-modal" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="whatsappModalLabel">Chat with Stone Exterio</h5>
+        <button type="button" class="btn-close" onclick="closeWhatsAppModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+         <!-- Added Full Name Input -->
+         <div class="mb-3">
+            <label for="whatsappName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="whatsappName" placeholder="Enter your full name" aria-label="Full Name">
+         </div>
+         <!-- Existing Textarea -->
+        <label for="whatsappMessage" class="form-label">Message</label> <!-- Added label for textarea -->
+        <textarea class="form-control" id="whatsappMessage" rows="4" placeholder="Type your message..." aria-label="WhatsApp message"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeWhatsAppModal()">Close</button>
+        <button type="button" class="btn btn-primary" onclick="sendWhatsAppMessage()">Send Message</button> <!-- Updated Button Text -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    // Function to open the WhatsApp modal
+    function openWhatsAppModal() {
+      const modal = document.getElementById('whatsappModal');
+      if (modal) {
+        modal.classList.add('show');
+        // Optional: Add a class to body to prevent background scroll
+        document.body.style.overflow = 'hidden';
+         document.body.style.paddingRight = '15px'; // Prevent content shift
+      }
+    }
+
+    // Function to close the WhatsApp modal
+    function closeWhatsAppModal() {
+      const modal = document.getElementById('whatsappModal');
+      if (modal) {
+        modal.classList.remove('show');
+         // Optional: Remove the class from body
+        document.body.style.overflow = '';
+         document.body.style.paddingRight = '';
+      }
+    }
+
+    // Function to send the WhatsApp message including the name
+    function sendWhatsAppMessage() {
+      const nameInput = document.getElementById('whatsappName');
+      const messageTextarea = document.getElementById('whatsappMessage'); // Use ID for textarea
+
+      if (!messageTextarea) {
+          console.error("Message textarea not found!");
+          return;
+      }
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const message = messageTextarea.value.trim();
+
+      if (message) { // Only require message to be non-empty
+        const whatsappNumber = '+919633170754'; // Replace with your number
+        let fullMessage = `Message: ${message}`; // Start with message
+
+        if (name) {
+          fullMessage = `Name: ${name}\n${fullMessage}`; // Prepend name if provided
+        }
+
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
+        window.open(url, '_blank');
+
+        // Clear fields and close modal
+        if (nameInput) nameInput.value = '';
+        messageTextarea.value = '';
+        closeWhatsAppModal();
+
+      } else {
+        alert('Please enter a message before sending.');
+        messageTextarea.focus(); // Focus on message field if empty
+      }
+    }
+
+     // Intersection Observer for animations
+     function handleIntersection(entries, observer) {
+       entries.forEach(entry => {
+         if (entry.isIntersecting) {
+           // Add 'visible' class for fade-in/up effect
+           entry.target.classList.add('visible');
+           // Add specific animation classes if needed (using Animate.css)
+           // Example: entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+           observer.unobserve(entry.target); // Stop observing once visible
+         }
+       });
+     }
+
+     // Set up the observer
+     const observer = new IntersectionObserver(handleIntersection, {
+       threshold: 0.1 // Trigger when 10% of the element is visible
+     });
+
+     // Observe elements with animation classes or designated for observation
+     document.querySelectorAll('.feature-box, .work-item, .work-video-container, .footer-section, .animate__animated').forEach(element => {
+       if (element) {
+         observer.observe(element);
+       }
+     });
+
+
+    // Video Play Button Logic
+    document.querySelectorAll('.play-button').forEach(button => {
+      if (button) {
+        button.addEventListener('click', () => {
+          const container = button.closest('.work-video-container');
+          const video = container?.querySelector('.work-video');
+          const overlay = container?.querySelector('.video-overlay');
+          if (video && overlay) {
+            if (video.paused || video.ended) {
+              video.play();
+              video.classList.add('playing');
+              // Consider hiding the button/overlay smoothly
+              // overlay.style.opacity = '0';
+            } else {
+              video.pause();
+              video.classList.remove('playing');
+              // overlay.style.opacity = '1';
+            }
+          }
+        });
+
+        // Optional: Show overlay again when video ends or pauses
+        const videoElem = button.closest('.work-video-container')?.querySelector('.work-video');
+         if(videoElem){
+             videoElem.addEventListener('pause', () => videoElem.classList.remove('playing'));
+             videoElem.addEventListener('ended', () => videoElem.classList.remove('playing'));
+         }
+      }
+    });
+
+    // Sticky Header Logic
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const topBar = document.querySelector('.top-bar');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const topBarHeight = topBar ? topBar.offsetHeight : 0;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+      if (header) {
+         // Add scrolled class for background/blur effect
+        if (scrollTop > topBarHeight + 50) { // Start effect slightly below header
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+
+         // Optional: Hide header on scroll down, show on scroll up
+         /*
+         if (scrollTop > lastScrollTop && scrollTop > headerHeight + topBarHeight) {
+             // Scroll Down
+             header.style.top = `-${headerHeight}px`;
+         } else {
+             // Scroll Up or at top
+             header.style.top = `${topBarHeight}px`;
+         }
+         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+         */
+      }
+
+
+      // Scroll to Top Button Visibility
+      if (scrollToTopBtn) {
+        if (scrollTop > 300) { // Show button after scrolling down 300px
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+      }
+    }, false);
+
+
+    // Scroll to Top Function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Carousel Touch Optimization (already good, maybe add interval option)
+    const welcomeCarouselElement = document.querySelector('#welcomeCarousel');
+    if (welcomeCarouselElement) {
+        const carousel = new bootstrap.Carousel(welcomeCarouselElement, {
+            interval: 5000, // Auto-cycle every 5 seconds
+            wrap: true, // Allow continuous cycling
+            touch: true // Ensure touch is enabled
+        });
+
+        // Pause on touchstart, resume on touchend (optional, Bootstrap might handle this)
+        /*
+        welcomeCarouselElement.addEventListener('touchstart', () => {
+            carousel.pause();
+        });
+        welcomeCarouselElement.addEventListener('touchend', () => {
+            carousel.cycle();
+        });
+        */
+    }
+
+     // Smooth Scrolling for Nav Links & Active State
+     document.querySelectorAll('nav ul li a[href^="#"], a.cta-button[href^="#"], .footer-section ul li a[href^="#"]').forEach(anchor => {
+       if (anchor) {
+         anchor.addEventListener('click', function (e) {
+           e.preventDefault();
+           const targetId = this.getAttribute('href');
+           const targetElement = document.querySelector(targetId);
+
+           if (targetElement) {
+             // Calculate offset considering sticky elements
+             const headerOffset = (header ? header.offsetHeight : 0) + (topBar ? topBar.offsetHeight : 0);
+             const elementPosition = targetElement.getBoundingClientRect().top;
+             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+             window.scrollTo({
+               top: offsetPosition,
+               behavior: 'smooth'
+             });
+
+             // Close mobile menu if open
+             if (window.innerWidth <= 850) {
+               const navMenu = document.querySelector('.nav-menu');
+               const toggler = document.querySelector('.navbar-toggler i');
+               if (navMenu && navMenu.classList.contains('active')) {
+                 navMenu.classList.remove('active');
+                 if(toggler) toggler.className = 'fas fa-bars'; // Reset icon
+               }
+             }
+              // Remove active class from all nav links
+              document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active'));
+              // Add active class to the clicked link (if it's in the main nav)
+              if(this.closest('nav ul')) {
+                  this.classList.add('active');
+              }
+           }
+         });
+       }
+     });
+
+    // Update Active Nav Link on Scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPosition = window.pageYOffset + (header ? header.offsetHeight : 0) + (topBar ? topBar.offsetHeight : 0) + 50; // Add buffer
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // Handle edge case for reaching the bottom
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 50) {
+            const lastSection = sections[sections.length - 1];
+             if(lastSection) current = lastSection.getAttribute('id');
+             // Special case for footer/contact
+             if(document.getElementById('contact') && scrollPosition > document.getElementById('contact').offsetTop - window.innerHeight / 2) {
+                 current = 'contact';
+             }
+        }
+
+
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+         // Ensure home is active if no other section is matched (at the top)
+         if (!current && window.pageYOffset < 200) {
+             const homeLink = document.querySelector('nav ul li a[href="#welcome"]');
+             if (homeLink) homeLink.classList.add('active');
+         }
+    });
+
+    // WhatsApp Trigger Setup
+    document.querySelectorAll('.wati-chat-trigger').forEach(trigger => {
+      if (trigger) {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          openWhatsAppModal();
+        });
+      }
+    });
+
+    // Navbar Toggler Logic
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navbarToggler && navMenu) {
+      navbarToggler.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.contains('active');
+        // Update icon using classList for better control
+        const icon = navbarToggler.querySelector('i');
+        if (icon) {
+          icon.className = `fas ${isActive ? 'fa-times' : 'fa-bars'}`;
+        }
+         // Toggle body class to prevent scroll when menu is open on mobile
+         document.body.classList.toggle('menu-open', isActive);
+      });
+    }
+
+     // Close mobile menu if clicking outside
+     document.addEventListener('click', function(event) {
+         const isClickInsideNav = navMenu.contains(event.target);
+         const isClickOnToggler = navbarToggler.contains(event.target);
+
+         if (!isClickInsideNav && !isClickOnToggler && navMenu.classList.contains('active')) {
+             navMenu.classList.remove('active');
+             const icon = navbarToggler.querySelector('i');
+              if (icon) icon.className = 'fas fa-bars';
+              document.body.classList.remove('menu-open');
+         }
+     });
+
+      // Update Footer Year Dynamically
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+      }
+
+  </script>
+</body>
+</html>
